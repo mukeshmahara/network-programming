@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mukeshmahara.networkprogramming;
 
 import java.io.DataInputStream;
@@ -21,7 +18,7 @@ public class MyClient {
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
             DataInputStream din = new DataInputStream(s.getInputStream());
 
-            String str = (String) din.readUTF(); //return utf to string
+            String str = din.readUTF(); //return utf to string
             System.out.println("Server Says= " + str);
 
             dout.writeUTF("Hello Server");
@@ -30,7 +27,8 @@ public class MyClient {
             dout.close();
             s.close();
         } catch (Exception e) {
-            System.out.println(e);
+//            System.out.println(e);
+            System.out.println("Error :"+ e.getMessage());
         }
     }
 }
