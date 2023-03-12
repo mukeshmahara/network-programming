@@ -22,7 +22,6 @@ public class MyClient {
             System.out.println("Server Says= " + str);
 
             dout.writeUTF("Hello Server");
-
             dout.flush();
             dout.close();
             s.close();
