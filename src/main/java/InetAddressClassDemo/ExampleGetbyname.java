@@ -15,7 +15,6 @@ public class ExampleGetbyname  {
         try {
             address = InetAddress.getByName("facebook.com");
             System.out.println("Address :" +address);
-
         } catch ( UnknownHostException exception) {
             System.out.println(exception.getMessage());
         }
@@ -26,17 +25,11 @@ public class ExampleGetbyname  {
             addressess = InetAddress.getAllByName("google.com");
         }catch (UnknownHostException exception){
             System.out.println(exception.getStackTrace());
-
         }
 
         for (InetAddress ip : addressess){
             System.out.println("\nADDRESS \t" +ip);
             System.out.println("Type \t" +ip.getClass());
-
         }
     }
-
-
-
-
 }
