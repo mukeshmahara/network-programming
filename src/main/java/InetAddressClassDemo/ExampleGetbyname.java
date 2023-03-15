@@ -4,32 +4,26 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 
-public class ExampleGetbyname  {
+public class ExampleGetbyname {
 
     public static void main(String[] args) {
 
-        InetAddress address ;
-        InetAddress[] addressess =null;
-
-//        Display the numeric address for the given hostname
+//      Display all the numeric address for the given hostname
+        System.out.println("\nDetermines the IP address of a host, given the host's name");
         try {
-            address = InetAddress.getByName("facebook.com");
-            System.out.println("Address :" +address);
-        } catch ( UnknownHostException exception) {
+            //Determines the IP address of a host, given the host's name.
+            //The host name can either be a machine name, such as "www.example.com",
+            // or a textual representation of its IP address. If a literal IP address
+            // is supplied, only the validity of the address format is checked.
+            InetAddress address = InetAddress.getByName("www.facebook.com");
+
+            System.out.println(address);
+
+        } catch (UnknownHostException exception) {
+
             System.out.println(exception.getMessage());
         }
 
-//        Display all the numeric address for the given hostname
-        System.out.println("\nDisplaying all the numeric address of the host");
-        try {
-            addressess = InetAddress.getAllByName("google.com");
-        }catch (UnknownHostException exception){
-            System.out.println(exception.getStackTrace());
-        }
-
-        for (InetAddress ip : addressess){
-            System.out.println("\nADDRESS \t" +ip);
-            System.out.println("Type \t" +ip.getClass());
-        }
+//
     }
 }
