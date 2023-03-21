@@ -9,7 +9,7 @@ public class GetByAddressExample {
         byte[] ip = {(byte) 157, (byte) 256, 0, 35};
 
         byte[] ipv4 = {1, 127, 0, 35};
-        byte[] ipv6 = {(byte) 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        byte[] ipv6 = {(byte) 2999, 59, 99, 100, 80, 70, 50, 10, 50, 98, 65, 54, 80, 30, 40, 10};
         try {
             //creates an InetAddress based on hostname and ip address
             //The system-wide resolver is not used to check the validity of the address.
