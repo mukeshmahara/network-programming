@@ -19,6 +19,7 @@ public class PartofURL {
                 String host = u.getHost();
                 if (host != null) {
                     int atSign = host.indexOf('@');
+
                     if (atSign != -1) host = host.substring(atSign + 1);
                     System.out.println("The host is " + host);
                 } else {
