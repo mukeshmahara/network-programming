@@ -13,23 +13,8 @@ public class OpeningURLConn {
         try {
             url = new URL("http://www.google.com");
             URLConnection connection = url.openConnection( );
-//
-            InputStream raw = connection.getInputStream();
-            InputStream buffer = new BufferedInputStream(raw);
-            // chain the InputStream to a Reader
-            Reader reader = new InputStreamReader(buffer);
-            int c;
-            while ((c = reader.read()) != -1) {
-                System.out.print((char) c);
-            }
-//            String contentType = connection.getContentType( );
-
-            //Listing all the headers
-            Map headers = connection.getHeaderFields();
-            for (Object header : headers.entrySet()) {
-                System.out.println(header);
-            }
-//            System.out.println(" The Content type is : "+contentType);
+            connection.connect();
+            System.out.println("Connection to "+connection.getHeaderField("server")+" has been creted");
         }catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }catch (IOException e){
