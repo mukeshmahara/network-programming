@@ -7,8 +7,7 @@ import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
+import java.net.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -16,15 +15,18 @@ public class CreatingHttpServer {
     public static void main(String[] args) {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8000), 0);
-
+            System.setProperty("http.keepAlive", "true");
             server.createContext("/welcome", new MyHttpHandler());
             server.createContext("/test",new MyHttpHandler());
             ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
 
+            CookieManager manager = new CookieManager();
+            manager.setCookiePolicy(CookiePolicy.ACCEPT_ORIGINAL_SERVER);
+            CookieHandler.setDefault(manager);
+
             server.setExecutor(threadPoolExecutor);
             server.start();
             System.out.println("Server Started at "+server.getAddress());
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -34,10 +36,9 @@ public class CreatingHttpServer {
 
  class MyHttpHandler implements HttpHandler {
 
+
     @Override
-
     public void handle(HttpExchange httpExchange) throws IOException {
-
         String requestParamValue=null;
         OutputStream outputStream = null;
         if("GET".equals(httpExchange.getRequestMethod())) {
