@@ -8,12 +8,13 @@ import java.util.Map;
 
 public class ReadingURLHeaders {
     public static void main(String[] args) {
-        URL url = null;
         try {
-            url = new URL("http://www.google.com");
+            URL url = new URL("http://www.google.com");
             URLConnection connection = url.openConnection( );
+
             //Listing all the headers
             Map headers = connection.getHeaderFields();
+
             for (Object header : headers.entrySet()) {
                 System.out.println(header);
             }
