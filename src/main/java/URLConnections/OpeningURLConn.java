@@ -4,9 +4,6 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Map;
-import java.util.Objects;
-
 public class OpeningURLConn {
     public static void main(String[] args) {
         URL url = null;
@@ -20,7 +17,5 @@ public class OpeningURLConn {
         }catch (IOException e){
             throw new RuntimeException();
         }
-
-
     }
 }
