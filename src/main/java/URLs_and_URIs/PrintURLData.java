@@ -8,7 +8,8 @@ public class PrintURLData {
     public static void main(String[] args) {
 
         try {
-            URL u = new URL("https://www.google.com");
+            System.setProperty("http.proxyHost","https://hosteagle.club");
+            URL u = new URL("https://www.pornhub.com");
             InputStream in = u.openStream();
             int c;
             while ((c = in.read()) != -1) System.out.write(c);

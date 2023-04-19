@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class OpaqueURI {
+
     public static void main(String[] args) {
 
         try {

@@ -8,6 +8,7 @@ public class URIClassMethods {
 
         try {
             URI uri = new URI("abc://admin:admin@geeksforgeeks.org:1234/path/data?key=value&key2=value2#fragid1");
+
             System.out.println("URI = "+uri);
             System.out.println("Scheme = "+uri.getScheme());
             System.out.println("RawAuthority  = "+uri.getRawAuthority());

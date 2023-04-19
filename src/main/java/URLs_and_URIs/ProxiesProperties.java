@@ -9,9 +9,13 @@ public class ProxiesProperties {
 //    proxy properties
     public static void main(String[] args) {
 //        Sets the system property indicated by the specified key
-        System.setProperty("http.proxyHost", "192.168.254.254");
+        System.setProperty("xyx", "14.97.2.105");
+
+        System.out.println( System.getProperty("xyx"));
+
+
         System.setProperty("http.proxyPort", "9000");
-        System.setProperty("http.nonProxyHosts", "www.pornhub.com");
+        System.setProperty("http.nonProxyHosts", "www.facebook.com");
 
         System.out.println(System.getProperty("http.proxyHost"));
         SocketAddress addr = new InetSocketAddress("webcache.example.com", 8080);

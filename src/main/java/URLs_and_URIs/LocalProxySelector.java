@@ -14,10 +14,11 @@ public class LocalProxySelector extends ProxySelector {
             result.add(Proxy.NO_PROXY);
         } else {
             SocketAddress proxyAddress
-                    = new InetSocketAddress( "proxy.example.com", 8000);
+                    = new InetSocketAddress( "182.255.45.165", 8080);
             Proxy proxy = new Proxy(Proxy.Type.HTTP, proxyAddress);
             result.add(proxy);
         }
+
         return result;
     }
 
@@ -26,6 +27,12 @@ public class LocalProxySelector extends ProxySelector {
     }
     public static void main(String[] args) {
         LocalProxySelector lps = new LocalProxySelector();
-
+        try {
+            URI uri = new URI("http:103.88.127.178:8080");
+            lps.select(uri);
+            System.out.println(lps.failed);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
