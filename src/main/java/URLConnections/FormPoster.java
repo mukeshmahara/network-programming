@@ -13,8 +13,7 @@ public class FormPoster {
 
     public FormPoster(URL url) {
         if (!url.getProtocol().toLowerCase().startsWith("http")) {
-            throw new IllegalArgumentException(
-                    "Posting only works for http URLs");
+            throw new IllegalArgumentException("Posting only works for http URLs");
         }
         this.url = url;
     }
@@ -28,14 +27,15 @@ public class FormPoster {
     }
 
     public InputStream post() throws IOException {
-// open the connection and prepare it to POST
+        // open the connection and prepare it to POST
         URLConnection uc = url.openConnection();
+        System.out.println(uc.getPermission());
         uc.setDoOutput(true);
         try (OutputStreamWriter out
                      = new OutputStreamWriter(uc.getOutputStream(), "UTF-8")) {
-// The POST line, the Content-type header,
-// and the Content-length headers are sent by the URLConnection.
-// We just need to send the data
+            // The POST line, the Content-type header,
+            // and the Content-length headers are sent by the URLConnection.
+            // We just need to send the data
             out.write(query.toString());
             out.write("\r\n");
             out.flush();

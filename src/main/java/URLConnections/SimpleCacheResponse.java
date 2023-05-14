@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.CacheResponse;
+import java.net.ResponseCache;
 import java.net.URLConnection;
 import java.util.Collections;
 import java.util.Date;
@@ -32,6 +33,8 @@ public class SimpleCacheResponse extends CacheResponse {
                 throws IOException {
             return headers;
         }
+
+
 
     public CacheControl getControl() {
         return control;

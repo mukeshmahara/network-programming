@@ -14,6 +14,7 @@ public class GuessMIMEType {
             URL url = new URL("https://www.youtube.com");
             URLConnection uc = url.openConnection();
             uc.connect();
+
             System.out.println("url Connection created...");
             InputStream in = uc.getInputStream();
             BufferedInputStream buffer = new BufferedInputStream(in);

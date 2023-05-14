@@ -10,8 +10,9 @@ public class ClientSocket {
     public static void main(String[] args) {
         try {
             Socket socket = new Socket("localhost", 8000);
-//            socket.setSoTimeout(15000);
             Scanner scanner = new Scanner(System.in);
+
+
 
             while(true) {
                 InputStream in = socket.getInputStream();

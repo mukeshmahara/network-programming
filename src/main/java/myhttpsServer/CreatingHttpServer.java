@@ -15,14 +15,9 @@ public class CreatingHttpServer {
     public static void main(String[] args) {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8000), 0);
-            System.setProperty("http.keepAlive", "true");
             server.createContext("/welcome", new MyHttpHandler());
             server.createContext("/test",new MyHttpHandler());
             ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
-
-            CookieManager manager = new CookieManager();
-            manager.setCookiePolicy(CookiePolicy.ACCEPT_ORIGINAL_SERVER);
-            CookieHandler.setDefault(manager);
 
             server.setExecutor(threadPoolExecutor);
             server.start();

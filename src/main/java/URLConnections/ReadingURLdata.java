@@ -12,11 +12,12 @@ public class ReadingURLdata {
             SimpleCacheResponse simpleCacheResponse = new SimpleCacheResponse(simpleCacheRequest,connection,null);
 
             System.out.println(simpleCacheResponse.getBody());
-
             InputStream rawdata = connection.getInputStream();
             InputStream buffer = new BufferedInputStream(rawdata);
             // chain the InputStream to a Reader
+
             Reader reader = new InputStreamReader(buffer);
+
             int c;
             while ((c = reader.read()) != -1) {
                 System.out.print( (char) c);

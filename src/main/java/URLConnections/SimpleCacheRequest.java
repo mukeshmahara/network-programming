@@ -7,6 +7,7 @@ import java.net.CacheRequest;
 
 public class SimpleCacheRequest extends CacheRequest {
     private ByteArrayOutputStream out = new ByteArrayOutputStream();
+
     @Override
     public OutputStream getBody() throws IOException {
         return out;
